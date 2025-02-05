@@ -1,13 +1,25 @@
 import { connectDb } from "@/lib/connectDb";
 import Contact from "@/models/Contact";
+import { NextResponse } from "next/server";
 
 export async function POST(req, res) {
   await connectDb();
-
+  const reqBody = await req.json();
+  console.log(reqBody);
   try {
-    const contact = await Contact.create(req.body);
-    res.status(201).json({ success: true, data: contact });
+    const contact = await Contact.create(reqBody);
+    return NextResponse.json(
+      { success: true, data: contact },
+      {
+        status: 201,
+      }
+    );
   } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+    return NextResponse.json(
+      { success: false, message: error.message },
+      {
+        status: 400,
+      }
+    );
   }
 }
