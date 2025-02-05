@@ -1,3 +1,4 @@
+"use client";
 import About from "@/components/About";
 import BackToTop from "@/components/BackToTop";
 import ContactForm from "@/components/ContactForm";
