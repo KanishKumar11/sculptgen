@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { footerSections, links } from "@/lib/constants";
 
 export default function Footer() {

@@ -71,9 +71,9 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="mx-auto max-w-7xl p-5 flex items-center justify-between flex-wrap gap-5"
+      className="mx-auto max-w-7xl p-5 flex items-center justify-between max-lg:flex-wrap gap-5"
     >
-      <div className="lg:min-w-[200px] order-1">
+      <div className="lg:min-w-[200px] max-lg:order-1">
         <div className="lg:text-4xl text-2xl font-medium">
           {currentTime.getDate()}/{currentTime.getMonth() + 1}
         </div>
@@ -82,7 +82,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className="bg-[#DD0000] text-xl font-medium flex items-center w-full md:min-w-[430px] justify-between p-5 py-3 relative ">
+      <div className="bg-[#DD0000] text-xl font-medium flex items-center max-lg:w-full md:min-w-[430px] justify-between p-5 py-3 relative ">
         <div
           className="cursor-pointer"
           onClick={() => setIsMenuActive(!isMenuActive)}
@@ -115,7 +115,7 @@ export default function Navbar() {
         </AnimatePresence>
       </div>
 
-      <div className="flex space-x-4 lg:text-2xl text-xl order-1 ">
+      <div className="flex space-x-4 lg:text-2xl text-xl max-lg:order-1 ">
         <div
           className={activeCity === "Mumbai" ? "text-red-500" : "text-white"}
         >
