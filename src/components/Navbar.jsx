@@ -4,6 +4,7 @@ import { IoExit, IoMenu } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { motion, AnimatePresence } from "motion/react";
+import { cn } from "@/lib/utils";
 
 const weekday = [
   "Sunday",
@@ -28,7 +29,7 @@ const services = [
   "Carriers",
 ];
 
-export default function Navbar() {
+export default function Navbar({ isBlackBg = true }) {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [timezone, setTimezone] = useState("Asia/Kolkata");
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -82,7 +83,12 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className="bg-[#DD0000] text-xl font-medium flex items-center max-lg:w-full md:min-w-[430px] justify-between p-5 py-3 relative ">
+      <div
+        className={cn(
+          "bg-[#DD0000] text-xl font-medium flex items-center max-lg:w-full md:min-w-[430px] justify-between p-5 py-3 relative ",
+          !isBlackBg && "text-white"
+        )}
+      >
         <div
           className="cursor-pointer"
           onClick={() => setIsMenuActive(!isMenuActive)}
@@ -117,17 +123,37 @@ export default function Navbar() {
 
       <div className="flex space-x-4 lg:text-2xl text-xl max-lg:order-1 ">
         <div
-          className={activeCity === "Mumbai" ? "text-red-500" : "text-white"}
+          className={
+            activeCity === "Mumbai"
+              ? "text-red-500"
+              : isBlackBg
+              ? "text-white"
+              : "text-[#272727]"
+          }
         >
           {timeFormats.Mumbai}
           <div className="md:text-sm text-xs uppercase">MUMBAI</div>
         </div>
-        <div className={activeCity === "NYC" ? "text-red-500" : "text-white"}>
+        <div
+          className={
+            activeCity === "NYC"
+              ? "text-red-500"
+              : isBlackBg
+              ? "text-white"
+              : "text-[#272727]"
+          }
+        >
           {timeFormats.NYC}
           <div className="md:text-sm text-xs uppercase">NYC</div>
         </div>
         <div
-          className={activeCity === "London" ? "text-red-500" : "text-white"}
+          className={
+            activeCity === "London"
+              ? "text-red-500"
+              : isBlackBg
+              ? "text-white"
+              : "text-[#272727]"
+          }
         >
           {timeFormats.London}
           <div className="md:text-sm text-xs uppercase">LONDON</div>
