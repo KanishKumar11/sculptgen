@@ -10,15 +10,9 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <div className="bg-black text-white pb-20 rounded-b-[80px] ">
-        <Navbar />
-        <Hero />
-      </div>
-      <div className="bg-white">
-        <About />
-        <ContactForm />
-        <BackToTop />
-      </div>
+      <Navbar />
+      <Hero />
+
       <Footer />
     </>
   );

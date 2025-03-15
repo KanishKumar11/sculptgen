@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import { cn } from "@/lib/utils";
+import { VVDS } from "@/fonts/fonts";
 
 const sections = [
   {
@@ -89,11 +90,13 @@ export default function Details({ sections, color }) {
             <Link key={id} href={`#${id}`}>
               <p
                 className={cn(
-                  "text-lg cursor-pointer capitalize",
-                  activeSection === id
-                    ? `text-[${color}] font-bold`
-                    : "text-gray-600"
+                  " text-xl lg:text-4xl cursor-pointer capitalize",
+                  VVDS.className,
+                  activeSection === id ? ` font-bold` : ""
                 )}
+                style={{
+                  color: activeSection == id ? `${color}` : "#4b5563",
+                }}
               >
                 {id}
               </p>
@@ -110,8 +113,10 @@ export default function Details({ sections, color }) {
             ref={(el) => (sectionRefs.current[id] = el)}
             className="py-10"
           >
-            <h2 className="text-8xl font-medium">{title}</h2>
-            <p className="mt-4 text-gray-600">{description}</p>
+            <h2 className={cn("text-8xl font-medium", VVDS.className)}>
+              {title}
+            </h2>
+            <p className="mt-4 text-gray-800 font-medium">{description}</p>
             <ul className="mt-4 space-y-2 list-disc pl-6">
               {features.map((feature, index) => (
                 <li key={index} className="text-gray-700">
